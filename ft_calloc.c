@@ -3,42 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 19:01:46 by coder             #+#    #+#             */
-/*   Updated: 2022/09/07 20:11:41 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/14 01:36:37 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned char	*ft_create(size_t nmemb, size_t size)
-{
-	unsigned char	*str;
-
-	str = malloc(nmemb * size);
-	return (str);
-}
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	unsigned char	*t;
+	size_t	i;
+	void	*t;
 
-	if (nmemb * size == 0)
+	i = nmemb * size;
+	if (i == 0 || (nmemb >= 65535 && size >= 65535))
 		return (NULL);
-	if (nmemb * size > 2147483647)
-	{
-		write(1, "Killed\n", 7);
-		return (NULL);
-	}
 	else
-		t = ft_create(nmemb, size);
-	i = 0;
-	while (i < nmemb * size)
 	{
-		t[i] = 0;
-		i++;
-	}
-	return ((void *)t);
+		t = malloc(i);
+		ft_bzero(t, i);
+	}	
+	return (t);
 }

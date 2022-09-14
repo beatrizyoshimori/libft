@@ -3,17 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/11 01:17:04 by coder             #+#    #+#             */
-/*   Updated: 2022/09/11 01:35:27 by coder            ###   ########.fr       */
+/*   Created: 2022/09/14 00:15:37 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/14 00:39:34 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+//#include "libft.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+
+size_t	ft_strlen(const char *s);
+
+char	f(unsigned int i, char c)
 {
-	char	*str;
-	int		i;
+	char	f;
+
+	f = c + i + 1;
+	return (f);
+}
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*str;
+	unsigned int	i;
 
 	str = malloc(ft_strlen(s) + 1);
 	if (str == NULL)
@@ -21,12 +36,9 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i] != '\0')
 	{
-		str[i] = (*f)(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-}
-
-int	main(void)
-{
-	
+	str[i] = '\0';
+	return (str);
 }

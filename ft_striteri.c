@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 01:13:40 by coder             #+#    #+#             */
-/*   Updated: 2022/09/14 02:24:54 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/14 00:25:26 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/14 00:59:07 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+#include <stdio.h>
+
+void	f(unsigned int i, char *c)
 {
-	size_t	length;
+	*c += i;
+}
 
-	length = 0;
-	while (s != NULL && *s)
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		length++;
-		s++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (length);
+}
+
+int	main(void)
+{
+	char *s = "abcde";
+	printf("%s\n", s);
+	ft_striteri(s, f);
+	printf("%s\n", s);
+	return (0);
 }

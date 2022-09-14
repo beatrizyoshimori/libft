@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:59:15 by coder             #+#    #+#             */
-/*   Updated: 2022/09/11 21:41:02 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/14 02:38:33 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**ft_split(char const *s, char c)
 	length = ft_strlen(s);
 	i = 0;
 	j = 0;
-	while (s[j])
+	while (s != NULL && s[j])
 	{
 		if (s[j] == c)
 		{
@@ -45,7 +45,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	j = 0;
 	l = 0;
-	while (s[j] != '\0')
+	while (s != NULL && s[j] != '\0')
 	{
 		while (s[j] == c)
 			j++;
