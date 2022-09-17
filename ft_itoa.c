@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 00:04:17 by coder             #+#    #+#             */
-/*   Updated: 2022/09/11 16:57:46 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/15 01:01:45 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 
-char	*ft_itoa_str(char *num, int n, int aux, int i)
+static char	*ft_itoa_str(char *num, int n, int aux, int i)
 {
 	if (num == NULL)
 		return (NULL);

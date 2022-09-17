@@ -6,7 +6,7 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 19:01:46 by coder             #+#    #+#             */
-/*   Updated: 2022/09/14 01:36:37 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:01:17 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	i;
 	void	*t;
 
-	i = nmemb * size;
-	if (i == 0 || (nmemb >= 65535 && size >= 65535))
+	if (size == 0 || nmemb == 0 || nmemb >= 2147483647 / size)
 		return (NULL);
-	else
-	{
-		t = malloc(i);
-		ft_bzero(t, i);
-	}	
+	i = nmemb * size;
+	t = malloc(i);
+	ft_bzero(t, i);
 	return (t);
 }

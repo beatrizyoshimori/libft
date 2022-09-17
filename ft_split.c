@@ -6,21 +6,17 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:59:15 by coder             #+#    #+#             */
-/*   Updated: 2022/09/14 02:38:33 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:34:02 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+static unsigned int	get_num_ptr(char const *s, char c)
 {
 	unsigned int	i;
 	unsigned int	j;
-	unsigned int	k;
-	unsigned int	l;
-	unsigned int	m;
 	size_t			length;
-	char			**str_substr;
 
 	length = ft_strlen(s);
 	i = 0;
@@ -40,34 +36,50 @@ char	**ft_split(char const *s, char c)
 		i--;
 	if (s[0] != c && s[length - 1] != c && i != length)
 		i++;
-	str_substr = malloc((i + 1) * sizeof(char *));
-	if (str_substr == NULL)
-		return (NULL);
+	return (i);
+}
+
+static char	**get_ptr(char const *s, char c, char **str)
+{
+	unsigned int	j;
+	unsigned int	k;
+	unsigned int	l;
+
 	j = 0;
 	l = 0;
-	while (s != NULL && s[j] != '\0')
+	while (s[j])
 	{
 		while (s[j] == c)
 			j++;
 		if (s[j] != '\0')
 		{
 			k = j;
-			while (s[k] != c && s[k] != '\0')
+			while (s[k] != c && s[k])
 				k++;
-			str_substr[l] = malloc((k - j + 1) * sizeof(char));
-			if (str_substr[l] == NULL)
+			str[l] = malloc((k - j + 1));
+			if (str[l] == NULL)
 				return (NULL);
-			m = j;
-			while (m < k)
-			{
-				str_substr[l][m - j] = s[m];
-				m++;
-			}
-			str_substr[l][m - j] = '\0';
+			ft_strlcpy(str[l], &s[j], k - j + 1);
 			l++;
 			j = k;
 		}
 	}
-	str_substr[l] = NULL;
-	return (str_substr);
+	str[l] = NULL;
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+
+	if (*s == '\0')
+	{
+		str = malloc(sizeof(char *));
+		str[0] = NULL;
+		return (str);
+	}
+	str = malloc((get_num_ptr(s, c) + 1) * sizeof(char *));
+	if (str == NULL)
+		return (NULL);
+	return (get_ptr(s, c, str));
 }

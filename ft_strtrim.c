@@ -6,7 +6,7 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 00:42:28 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/13 03:22:45 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/15 00:21:38 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 #include "libft.h"
 
-size_t	ft_strtrim_beg(char const *s1, char const *set)
+static size_t	ft_strtrim_beg(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -58,7 +58,7 @@ size_t	ft_strtrim_beg(char const *s1, char const *set)
 	return (i);
 }
 
-size_t	ft_strtrim_end(char const *s1, char const *set, size_t m)
+static size_t	ft_strtrim_end(char const *s1, char const *set, size_t m)
 {
 	size_t	i;
 	size_t	j;
