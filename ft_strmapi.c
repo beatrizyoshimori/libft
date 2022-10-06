@@ -6,24 +6,11 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 00:15:37 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/15 00:17:04 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/18 00:08:46 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-
-#include <stdlib.h>
-#include <stdio.h>
-
-size_t	ft_strlen(const char *s);
-
-char	f(unsigned int i, char c)
-{
-	char	f;
-
-	f = c + i + 1;
-	return (f);
-}
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

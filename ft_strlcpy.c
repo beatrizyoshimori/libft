@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 00:12:40 by coder             #+#    #+#             */
-/*   Updated: 2022/09/15 00:12:53 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/18 00:36:23 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/18 00:36:25 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
-	if (size < 0)
-		dst[ft_strlen(src) + 1 + size] = '\0';
 	i = 0;
 	if (size != 0)
 	{

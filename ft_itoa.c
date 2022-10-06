@@ -5,13 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/11 00:04:17 by coder             #+#    #+#             */
-/*   Updated: 2022/09/15 01:01:45 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/18 00:34:05 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/18 00:34:08 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include <stdio.h>
-// #include <stdlib.h>
 
 #include "libft.h"
 
@@ -69,51 +66,3 @@ char	*ft_itoa(int n)
 	ft_itoa_str(num, n, aux, i);
 	return (num);
 }
-
-// char	*ft_itoa(int n)
-// {
-// 	char	*s;
-// 	int		len;
-// 	int		aux;
-
-// 	len = 0;
-// 	aux = n;
-// 	while (aux != 0)
-// 	{
-// 		len++;
-// 		aux = aux / 10;
-// 	}
-// 	if (n == 0)
-// 		len = 1;
-// 	aux = n;
-// 	if (n < 0)
-// 		len++;
-// 	s = malloc(len + 1);
-// 	if (s == NULL)
-// 		return (NULL);
-// 	s[len] = '\0';
-// 	if (n < 0)
-// 	{
-// 		if (n == -2147483648)
-// 		{
-// 			s[len - 1] = '8';
-// 			n = n / 10;
-// 			len--;
-// 		}
-// 		n = -n;
-// 	}
-// 	while (len > 0)
-// 	{
-// 		s[len - 1] = (n % 10) + 48;
-// 		n = n / 10;
-// 		len--;
-// 	}
-// 	if (aux < 0)
-// 		s[0] = '-';
-// 	return (s);
-// }
-
-// int	main(void)
-// {
-// 	printf("%s\n", ft_itoa(0));
-// }

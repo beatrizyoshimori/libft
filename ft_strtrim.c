@@ -6,29 +6,9 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 00:42:28 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/15 00:21:38 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/27 03:28:24 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-// // char	*ft_strnstr(const char *big, const char *little, size_t len);
-// // size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	length;
-
-// 	length = 0;
-// 	while (*s)
-// 	{
-// 		length++;
-// 		s++;
-// 	}
-// 	return (length);
-// }
 
 #include "libft.h"
 
@@ -48,7 +28,10 @@ static size_t	ft_strtrim_beg(char const *s1, char const *set)
 		while (set[l])
 		{
 			if (s1[k] == set[l])
+			{
 				i++;
+				break ;
+			}
 			l++;
 		}
 		if (j == i)
@@ -60,31 +43,29 @@ static size_t	ft_strtrim_beg(char const *s1, char const *set)
 
 static size_t	ft_strtrim_end(char const *s1, char const *set, size_t m)
 {
-	size_t	i;
 	size_t	j;
 	size_t	k;
 	size_t	l;
 
-	i = m;
-	if (i != ft_strlen(s1))
+	k = ft_strlen(s1) - 1;
+	while (k > 0)
 	{
-		k = ft_strlen(s1) - 1;
-		while (k > 0)
+		j = m;
+		l = 0;
+		while (set[l])
 		{
-			j = i;
-			l = 0;
-			while (set[l])
+			if (s1[k] == set[l])
 			{
-				if (s1[k] == set[l])
-					i++;
-				l++;
-			}
-			if (j == i)
+				m++;
 				break ;
-			k--;
+			}
+			l++;
 		}
+		if (j == m)
+			break ;
+		k--;
 	}
-	return (i);
+	return (m);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -93,18 +74,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	n;
 	char	*str;
 
+	n = ft_strlen(s1);
 	m = ft_strtrim_beg(s1, set);
-	n = ft_strtrim_end(s1, set, m);
+	if (m != ft_strlen(s1))
+		n = ft_strtrim_end(s1, set, m);
 	str = ft_substr(s1, m, ft_strlen(s1) - n);
 	if (str == NULL)
 		return (NULL);
 	return (str);
 }
-
-// int	main(void)
-// {
-// 	char *s1 = "abcdba";
-// 	char *set = "acb";
-
-// 	printf("%s\n", ft_strtrim(s1, set));
-// }

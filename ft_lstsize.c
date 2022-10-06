@@ -6,7 +6,7 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:38:57 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/17 00:50:16 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/23 02:46:12 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 int	ft_lstsize(t_list *lst)
 {
 	int		i;
-	t_list	*aux;
 
 	i = 0;
-	aux = lst;
-	while (aux != NULL)
+	while (lst != NULL)
 	{
 		i++;
-		aux = aux->next;
+		lst = lst->next;
 	}
 	return (i);
 }

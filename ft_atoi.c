@@ -6,7 +6,7 @@
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 23:22:35 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/12 23:22:55 by byoshimo         ###   ########.fr       */
+/*   Updated: 2022/09/18 02:52:50 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi(const char *nptr)
 	{
 		if (ft_isdigit(nptr[i + 1]) != 1)
 			return (0);
-		i += 1;
+		i++;
 	}
 	num = 0;
 	while (ft_isdigit(nptr[i]) == 1)

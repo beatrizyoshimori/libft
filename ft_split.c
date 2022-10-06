@@ -5,12 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/11 16:59:15 by coder             #+#    #+#             */
-/*   Updated: 2022/09/15 02:34:02 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/18 00:35:48 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/20 02:48:09 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**ft_free(char **str, unsigned int l)
+{
+	unsigned int	i;
+
+	if (str[l] == NULL)
+	{
+		i = 0;
+		while (i < l)
+		{
+			free(str[i]);
+			i++;
+		}
+		free(str);
+		return (NULL);
+	}
+	else
+		return (str);
+}
 
 static unsigned int	get_num_ptr(char const *s, char c)
 {
@@ -32,9 +51,9 @@ static unsigned int	get_num_ptr(char const *s, char c)
 		else
 			j++;
 	}
-	if (s[0] == c && s[length - 1] == c && i != 0)
+	if (s[0] == c && s[length - 1] == c)
 		i--;
-	if (s[0] != c && s[length - 1] != c && i != length)
+	if (s[0] != c && s[length - 1] != c)
 		i++;
 	return (i);
 }
@@ -57,7 +76,7 @@ static char	**get_ptr(char const *s, char c, char **str)
 			while (s[k] != c && s[k])
 				k++;
 			str[l] = malloc((k - j + 1));
-			if (str[l] == NULL)
+			if (ft_free(str, l) == NULL)
 				return (NULL);
 			ft_strlcpy(str[l], &s[j], k - j + 1);
 			l++;

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 02:36:13 by byoshimo          #+#    #+#             */
-/*   Updated: 2022/09/17 03:27:29 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/18 00:34:25 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/18 00:34:27 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*aux;
 

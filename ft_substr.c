@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: byoshimo <byoshimo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 19:59:48 by coder             #+#    #+#             */
-/*   Updated: 2022/09/15 00:24:06 by byoshimo         ###   ########.fr       */
+/*   Created: 2022/09/18 00:36:56 by byoshimo          #+#    #+#             */
+/*   Updated: 2022/09/23 00:25:39 by byoshimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (start > ft_strlen(s))
 		sub = malloc(1);
-	else if (len < ft_strlen(s))
+	else if (len < ft_strlen(s) - start)
 		sub = malloc(len + 1);
 	else
 		sub = malloc(ft_strlen(s) - start + 1);
